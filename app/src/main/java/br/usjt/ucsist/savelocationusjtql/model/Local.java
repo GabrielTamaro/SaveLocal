@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Local{
+public class Local implements Comparable<Local>{
 
     private String dadosLongitude;
     private String dadosLatitude;
@@ -111,6 +111,11 @@ public class Local{
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public int compareTo(Local local) {
+        return this.dataCadastro.compareTo(local.dataCadastro);
     }
 
 }

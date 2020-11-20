@@ -60,12 +60,6 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
 
     private Button adicionarLocais;
 
-    public static final String CEP_KEY = "cep";
-    public static final String RUA_KEY = "rua";
-    public static final String NUMERO_KEY = "numero";
-    public static final String BAIRRO_KEY = "bairro";
-    public static final String CIDADE_KEY = "cidade";
-    public static final String ESTADO_KEY = "estado";
     private static final String TAG = "MyActivity";
 
 
@@ -87,89 +81,111 @@ public class CadastroDeLocaisActivity extends AppCompatActivity {
 
         });
 
+
+        editTextCEP = (EditText) findViewById(R.id.editTextCEP);
+        editTextRua = (EditText) findViewById(R.id.editTextRua);
+        editTextNumero = (EditText) findViewById(R.id.editTextNumero);
+        editTextBairro = (EditText) findViewById(R.id.editTextBairro);
+        editTextCidade = (EditText) findViewById(R.id.editTextCidade);
+        editTextEstado = (EditText) findViewById(R.id.editTextEstado);
+
+
+//        cardsLocaisRecyclerView = findViewById(R.id.cardsLocaisRecycleView);
+//        locais = new ArrayList<>();
+//        adapter = new LocalAdapter(locais, this);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+//        linearLayoutManager.setReverseLayout(true);
+//        cardsLocaisRecyclerView.setLayoutManager(linearLayoutManager);
+//        cardsLocaisRecyclerView.setAdapter(adapter);
+//        editTextRua = findViewById(R.id.editTextRua);
+//        editTextNumero = findViewById(R.id.editTextNumero);
+//        editTextEstado = findViewById(R.id.editTextEstado);
+//        editTextCidade = findViewById(R.id.editTextCidade);
+//        editTextCEP = findViewById(R.id.editTextCEP);
+//        editTextBairro = findViewById(R.id.editTextBairro);
+//        DadosDeLatitude = findViewById(R.id.DadosDeLatitude);
+//        DadosDeLongitude = findViewById(R.id.DadosDeLongitude);
     }
 
     public void confirmarCadastro(View view){
-        EditText cepView = (EditText) findViewById(R.id.editTextCEP);
-        EditText ruaView = (EditText) findViewById(R.id.editTextRua);
-        EditText numeroView = (EditText) findViewById(R.id.editTextNumero);
-        EditText bairroView = (EditText) findViewById(R.id.editTextBairro);
-        EditText cidadeView = (EditText) findViewById(R.id.editTextCidade);
-        EditText estadoView = (EditText) findViewById(R.id.editTextEstado);
+        if(validarCampos()) {
+            String cepText = editTextCEP.getText().toString();
+            String ruaText = editTextRua.getText().toString();
+            String numeroText = editTextNumero.getText().toString();
+            String bairroText = editTextBairro.getText().toString();
+            String cidadeText = editTextCidade.getText().toString();
+            String estadoText = editTextEstado.getText().toString();
 
-        String cepText = cepView.getText().toString();
-        String ruaText = ruaView.getText().toString();
-        String numeroText = numeroView.getText().toString();
-        String bairroText = bairroView.getText().toString();
-        String cidadeText = cidadeView.getText().toString();
-        String estadoText = estadoView.getText().toString();
-
-        if (cepText.isEmpty() || ruaText.isEmpty() || numeroText.isEmpty() || bairroText.isEmpty() || cidadeText.isEmpty() || estadoText.isEmpty()) {
-            return;
-        }
-        Map<String, Object> dataToSave = new HashMap<String, Object>();
-        dataToSave.put(CEP_KEY, cepText);
-        dataToSave.put(RUA_KEY, ruaText);
-        dataToSave.put(NUMERO_KEY, numeroText);
-        dataToSave.put(BAIRRO_KEY, bairroText);
-        dataToSave.put(CIDADE_KEY, cidadeText);
-        dataToSave.put(ESTADO_KEY, estadoText);
-        mDocRef.collection("Locais")
-                .add(dataToSave)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
-
-        mDocRef.collection("Locais")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.w(TAG, "Error getting documents.", task.getException());
+            if (cepText.isEmpty() || ruaText.isEmpty() || numeroText.isEmpty() || bairroText.isEmpty() || cidadeText.isEmpty() || estadoText.isEmpty()) {
+                return;
+            }
+            Map<String, Object> dataToSave = new HashMap<String, Object>();
+            dataToSave.put("cep", cepText);
+            dataToSave.put("rua", ruaText);
+            dataToSave.put("numero", numeroText);
+            dataToSave.put("bairro", bairroText);
+            dataToSave.put("cidade", cidadeText);
+            dataToSave.put("estado", estadoText);
+            mDocRef.collection("Locais")
+                    .add(dataToSave)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                         }
-                    }
-                });
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error adding document", e);
+                        }
+                    });
+
+            Intent intent = new Intent(CadastroDeLocaisActivity.this, MainActivity.class);
+            startActivity(intent);
+
+                    mDocRef.collection("Locais")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                            Log.d(TAG, document.getId() + " => " + document.getData());
+                                        }
+                                    } else {
+                                        Log.w(TAG, "Error getting documents.", task.getException());
+                                    }
+                                }
+                            });
+        }
     }
-//    public boolean validarCampos(){
-//        boolean valido = true;
-//        if(editTextCEP.getText().toString().trim().length() == 0){
-//            valido = false;
-//            Toast.makeText(this, "CEP inválido", Toast.LENGTH_SHORT).show();
-//        }
-//        if(editTextRua.getText().toString().trim().length() == 0){
-//            valido = false;
-//            Toast.makeText(this, "Rua inválido", Toast.LENGTH_SHORT).show();
-//        }
-//        if(editTextNumero.getText().toString().trim().length() == 0){
-//            valido = false;
-//            Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show();
-//        }
-//        if(editTextBairro.getText().toString().trim().length() == 0){
-//            valido = false;
-//            Toast.makeText(this, "Bairro inválido", Toast.LENGTH_SHORT).show();
-//        }
-//        if(editTextCidade.getText().toString().trim().length() == 0){
-//            valido = false;
-//            Toast.makeText(this, "Cidade inválido", Toast.LENGTH_SHORT).show();
-//        }
-//        if(editTextEstado.getText().toString().trim().length() == 0){
-//            valido = false;
-//            Toast.makeText(this, "Estado inválido", Toast.LENGTH_SHORT).show();
-//        }
-//        return  valido;
-//    }
+    public boolean validarCampos(){
+        boolean valido = true;
+        if(editTextCEP.getText().toString().trim().length() == 0){
+            valido = false;
+            Toast.makeText(this, "CEP inválido", Toast.LENGTH_SHORT).show();
+        }
+        if(editTextRua.getText().toString().trim().length() == 0){
+            valido = false;
+            Toast.makeText(this, "Rua inválido", Toast.LENGTH_SHORT).show();
+        }
+        if(editTextNumero.getText().toString().trim().length() == 0){
+            valido = false;
+            Toast.makeText(this, "Número inválido", Toast.LENGTH_SHORT).show();
+        }
+        if(editTextBairro.getText().toString().trim().length() == 0){
+            valido = false;
+            Toast.makeText(this, "Bairro inválido", Toast.LENGTH_SHORT).show();
+        }
+        if(editTextCidade.getText().toString().trim().length() == 0){
+            valido = false;
+            Toast.makeText(this, "Cidade inválido", Toast.LENGTH_SHORT).show();
+        }
+        if(editTextEstado.getText().toString().trim().length() == 0){
+            valido = false;
+            Toast.makeText(this, "Estado inválido", Toast.LENGTH_SHORT).show();
+        }
+        return  valido;
+    }
 }

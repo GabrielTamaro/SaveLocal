@@ -75,21 +75,21 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        cardsLocaisRecyclerView = findViewById(R.id.cardsLocaisRecycleView);
-        locais = new ArrayList<>();
-        adapter = new LocalAdapter(locais, this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setReverseLayout(true);
-        cardsLocaisRecyclerView.setLayoutManager(linearLayoutManager);
-        cardsLocaisRecyclerView.setAdapter(adapter);
-        editTextRua = findViewById(R.id.editTextRua);
-        editTextNumero = findViewById(R.id.editTextNumero);
-        editTextEstado = findViewById(R.id.editTextEstado);
-        editTextCidade = findViewById(R.id.editTextCidade);
-        editTextCEP = findViewById(R.id.editTextCEP);
-        editTextBairro = findViewById(R.id.editTextBairro);
-        DadosDeLatitude = findViewById(R.id.DadosDeLatitude);
-        DadosDeLongitude = findViewById(R.id.DadosDeLongitude);
+//        cardsLocaisRecyclerView = findViewById(R.id.cardsLocaisRecycleView);
+//        locais = new ArrayList<>();
+//        adapter = new LocalAdapter(locais, this);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+//        linearLayoutManager.setReverseLayout(true);
+//        cardsLocaisRecyclerView.setLayoutManager(linearLayoutManager);
+//        cardsLocaisRecyclerView.setAdapter(adapter);
+//        editTextRua = findViewById(R.id.editTextRua);
+//        editTextNumero = findViewById(R.id.editTextNumero);
+//        editTextEstado = findViewById(R.id.editTextEstado);
+//        editTextCidade = findViewById(R.id.editTextCidade);
+//        editTextCEP = findViewById(R.id.editTextCEP);
+//        editTextBairro = findViewById(R.id.editTextBairro);
+//        DadosDeLatitude = findViewById(R.id.DadosDeLatitude);
+//        DadosDeLongitude = findViewById(R.id.DadosDeLongitude);
 
     }
 
