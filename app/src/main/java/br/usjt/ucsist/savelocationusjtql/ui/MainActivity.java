@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -47,10 +49,32 @@ public class MainActivity extends AppCompatActivity {
     private TextView DadosDeLatitude;
     private Button adicionarLocais;
 
+    public static final String CEP_KEY = "cep";
+    public static final String RUA_KEY = "rua";
+    public static final String NUMERO_KEY = "numero";
+    public static final String BAIRRO_KEY = "bairro";
+    public static final String CIDADE_KEY = "cidade";
+    public static final String ESTADO_KEY = "estado";
+    private static final String TAG = "MyActivity";
+
+    private DocumentReference mDocRef = FirebaseFirestore.getInstance().collection("sampleData").document("Locais");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        adicionarLocais = (Button) findViewById(R.id.buttonAdicionarLocais);
+        adicionarLocais.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, CadastroDeLocaisActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
         cardsLocaisRecyclerView = findViewById(R.id.cardsLocaisRecycleView);
         locais = new ArrayList<>();
         adapter = new LocalAdapter(locais, this);
@@ -67,22 +91,11 @@ public class MainActivity extends AppCompatActivity {
         DadosDeLatitude = findViewById(R.id.DadosDeLatitude);
         DadosDeLongitude = findViewById(R.id.DadosDeLongitude);
 
-        adicionarLocais = (Button) findViewById(R.id.buttonAdicionarLocais);
-        adicionarLocais.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, CadastroDeLocaisActivity.class);
-                startActivity(intent);
-            }
-
-        });
-
     }
 
-    private void setupFirebase (){
-        locaisReference = FirebaseFirestore.getInstance().collection("mensagens");
-        getRemoteMsgs();
+    private void setupFirebase() {
+        locaisReference = FirebaseFirestore.getInstance().collection("sampleData");
+
     }
 
     @Override
@@ -90,20 +103,4 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         setupFirebase();
     }
-
-    private void getRemoteMsgs (){
-        locaisReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                locais.clear();
-                for (DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()){
-                    Local incomingMsg = doc.toObject(Local.class);
-                    locais.add(incomingMsg);
-                }
-                adapter.notifyDataSetChanged();
-            }
-        });
-    }
-
-
 }
