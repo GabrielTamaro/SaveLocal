@@ -1,15 +1,12 @@
 package br.usjt.ucsist.savelocationusjtql.model;
 
-
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-public class Local implements Comparable<Local>{
+public class Local {
 
     private String dadosLongitude;
     private String dadosLatitude;
-    private String cep;
+    private String titulo;
     private String rua;
     private String numero;
     private String bairro;
@@ -17,28 +14,19 @@ public class Local implements Comparable<Local>{
     private String estado;
     private Date dataCadastro;
 
-//    public Local(String dadosLongitude, String dadosLatitude, String cep, String rua, String numero, String bairro, String cidade, String estado, Date dataCadastro) {
-//        this.dadosLongitude = dadosLongitude;
-//        this.dadosLatitude = dadosLatitude;
-//        this.cep = cep;
-//        this.rua = rua;
-//        this.numero = numero;
-//        this.bairro = bairro;
-//        this.cidade = cidade;
-//        this.estado = estado;
-//        this.dataCadastro = dataCadastro;
-//    }
-
-    public Local(String cep, String rua, String numero, String bairro, String cidade, String estado, Date date) {
-        this.cep = cep;
+    public Local(String dadosLongitude, String dadosLatitude, String titulo, String rua, String numero, String bairro, String cidade, String estado, Date dataCadastro) {
+        this.dadosLongitude = dadosLongitude;
+        this.dadosLatitude = dadosLatitude;
+        this.titulo = titulo;
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
+        this.dataCadastro = dataCadastro;
     }
 
-    public Local(String cep, String rua, String numero, String bairro, String cidade, String estado) {
+    public Local() {
     }
 
     public String getDadosLongitude() {
@@ -65,12 +53,12 @@ public class Local implements Comparable<Local>{
         this.dataCadastro = dataCadastro;
     }
 
-    public String getCep() {
-        return cep;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getRua() {
@@ -111,11 +99,6 @@ public class Local implements Comparable<Local>{
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    @Override
-    public int compareTo(Local local) {
-        return this.dataCadastro.compareTo(local.dataCadastro);
     }
 
 }
