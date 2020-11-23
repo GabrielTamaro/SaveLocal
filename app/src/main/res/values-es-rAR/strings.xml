@@ -1,9 +1,32 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+    <string name="app_name">Save Location USJT QL</string>
+
+    <string name="gps_permission_denied">Permiso de acceso al GPS no concedido</string>
+
+    <string name="BAdicionarLocais">Agregar Lugares</string>
+
+    <string name="TCadastroDeLocais">Registro de Lugares</string>
+    <string name="LinkDaFoto">Agregar una foto del lugar</string>
+    <string name="titulo">Ingresa el Título</string>
+    <string name="rua">Introduzca la Calle</string>
+    <string name="numero">Introduzca el Número</string>
+    <string name="bairro">Introduzca el Barrio</string>
+    <string name="cidade">Ingrese a la ciudad</string>
+    <string name="estado">Ingrese el Estado</string>
+    <string name="avisoCadastro">*Compruebe que los campos se han rellenado correctamente*</string>
+    <string name="BConfirmar">Confirmar</string>
+    <string name="BVoltar">Vuelve</string>
+
+    <string name="CDataDeCadastro">Fecha de Registro:</string>
+    <string name="CdataDados">%s</string>
+    <string name="CTitulo">Título: %s</string>
+    <string name="CRua">Calle: %s</string>
+    <string name="CBairro">Barrio: %s</string>
+    <string name="CCidade">Ciudad: %s</string>
+    <string name="CEstado">Estado: %s</string>
+    <string name="CLatitude">Latitud:</string>
+    <string name="ClatitudeDados"> %s</string>
+    <string name="Clongitude">Longitud:</string>
+    <string name="ClongitudeDados"> %s</string>
+
 </resources>
