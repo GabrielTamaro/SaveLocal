@@ -1,13 +1,14 @@
 <resources>
-
     <string name="app_name">Save Location USJT QL</string>
-
     <string name="gps_permission_denied">Permissão de acesso ao GPS não concedida.</string>
-
+    <string name="delete_dialog">Deseja deletar local?</string>
+    <string name="positive">Sim</string>
+    <string name="negative">Não</string>
+    <string name="delete">Deletar</string>
+    <string name="deleted">Deletado com sucesso.</string>
+    <string name="notDeleted">Não deletado.</string>
     <string name="BAdicionarLocais">Adicionar Locais</string>
-
     <string name="TCadastroDeLocais">Cadastro de Locais</string>
-    <string name="LinkDaFoto">Clique aqui para adicionar uma foto do local</string>
     <string name="titulo">Insira o Título</string>
     <string name="rua">Insira a Rua</string>
     <string name="numero">Insira o Nº</string>
@@ -17,17 +18,17 @@
     <string name="avisoCadastro">*Verifique se os campos foram preenchidos corretamente*</string>
     <string name="BConfirmar">Confirmar</string>
     <string name="BVoltar">Voltar</string>
-
     <string name="CDataDeCadastro">Data de Cadastro:</string>
     <string name="CdataDados">%s</string>
     <string name="CTitulo">Título: %s</string>
     <string name="CRua">Rua: %s</string>
+    <string name="CNumero">Número: %s</string>
     <string name="CBairro">Bairro: %s</string>
     <string name="CCidade">Cidade: %s</string>
     <string name="CEstado">Estado: %s</string>
-    <string name="CLatitude">Latitude</string>
+    <string name="CLatitude">Latitude:</string>
     <string name="ClatitudeDados"> %s</string>
-    <string name="Clongitude">Longitude</string>
+    <string name="Clongitude">Longitude:</string>
     <string name="ClongitudeDados"> %s</string>
 
 </resources>

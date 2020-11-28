@@ -27,7 +27,9 @@ public class Local {
     }
 
     public Local() {
+
     }
+
 
     public String getDadosLongitude() {
         return dadosLongitude;

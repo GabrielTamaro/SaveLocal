@@ -3,11 +3,16 @@
     <string name="app_name">Save Location USJT QL</string>
 
     <string name="gps_permission_denied">Permission denied cannot get location.</string>
+    <string name="delete_dialog">Are you sure to delete this data?</string>
+    <string name="positive">Yes</string>
+    <string name="negative">No</string>
+    <string name="delete">Delete</string>
+    <string name="deleted">Successfully deleted.</string>
+    <string name="notDeleted">Deletion failed.</string>
 
     <string name="BAdicionarLocais">Add Places</string>
 
     <string name="TCadastroDeLocais">Registration of Places</string>
-    <string name="LinkDaFoto">Click here to add a photo of the place</string>
     <string name="titulo">Enter Title</string>
     <string name="rua">Enter Street</string>
     <string name="numero">Enter the Nº</string>
@@ -22,12 +27,13 @@
     <string name="CdataDados">%s</string>
     <string name="CTitulo">Title: %s</string>
     <string name="CRua">Street: %s</string>
+    <string name="CNumero">Number: %s</string>
     <string name="CBairro">Neighborhood: %s</string>
     <string name="CCidade">City: %s</string>
     <string name="CEstado">State: %s</string>
-    <string name="CLatitude">Latitude</string>
+    <string name="CLatitude">Latitude:</string>
     <string name="ClatitudeDados"> %s</string>
-    <string name="Clongitude">Longitude</string>
+    <string name="Clongitude">Longitude:</string>
     <string name="ClongitudeDados"> %s</string>
 
 
