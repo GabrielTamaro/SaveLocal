@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "303333057134",
+    "firebase_url": "https://save-location-usjt-ql-9a1c6.firebaseio.com",
+    "project_id": "save-location-usjt-ql-9a1c6",
+    "storage_bucket": "save-location-usjt-ql-9a1c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303333057134:android:6caeef52545f188a39bc7f",
+        "android_client_info": {
+          "package_name": "br.usjt.ucsist.savelocationusjtql"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "303333057134-a6h0ad5oic9t1nab5n098kto4og7damn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.usjt.ucsist.savelocationusjtql",
+            "certificate_hash": "64b5066b5511dd2b07d107e31e5e98948fdfa933"
+          }
+        },
+        {
+          "client_id": "303333057134-udrsnkagnpale48ane2ampr8fkqan2kg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-PAU9Pcw3Y7BnLHhk5hMSgnfm-9XVKE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "303333057134-udrsnkagnpale48ane2ampr8fkqan2kg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -54,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onItemLongClick(int position, View v) {
+                showDeleteDialog();
+                adapter.notifyItemRemoved(position);
+                locais.remove(position);
+                dataToDelete();
                 Log.d("RESULTADO", "onItemLongClick pos = " + position);
             }
         });
@@ -115,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Pode apagar ? Pq o metodo esta transparente ou seja não esta sendo utilizado...
-    private void showDeleteDialog(String name){
+    private void showDeleteDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.delete);
         builder.setMessage(R.string.delete_dialog);
